@@ -39,12 +39,14 @@ public class Projeto {
     private String descricao;
 
     @Size(max=45)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     private BigDecimal orcamento;
 
     @Size(max=45)
-    private String risco;
+    @Enumerated(EnumType.STRING)
+    private Risco risco;
 
     @NonNull
     private Integer idgerente;
@@ -54,6 +56,15 @@ public class Projeto {
             joinColumns = { @JoinColumn(name = "idprojeto") },
             inverseJoinColumns = { @JoinColumn(name = "idpessoa") })
     private Set<Pessoa> membros = new HashSet<>();
+
+    public Boolean possivelExcluir(){
+        if (status.equals(Status.INICIADO) ||
+            status.equals(Status.EM_ANDAMENTO) ||
+            status.equals(Status.ENCERRADO)) {
+            return false;
+        }
+        return true;
+    }
 
 }
 
