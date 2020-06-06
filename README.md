@@ -80,3 +80,5 @@ VALUES(1, 1);
 ```
 
 ### Iniciando o app
+
+- mvn spring-boot:run

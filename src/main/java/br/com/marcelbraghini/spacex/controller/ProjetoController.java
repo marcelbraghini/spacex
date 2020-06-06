@@ -3,11 +3,9 @@ package br.com.marcelbraghini.spacex.controller;
 import br.com.marcelbraghini.spacex.model.Projeto;
 import br.com.marcelbraghini.spacex.repository.RepositoryProjeto;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,8 +34,48 @@ public class ProjetoController {
     }
 
     @GetMapping(value = "/{id}")
-    public Projeto show(@PathVariable final Long id) {
-        return repositoryProjeto.findAllById(id);
+    public ResponseEntity<Object> show(@PathVariable final Long id) {
+        try {
+            final Projeto projeto = repositoryProjeto.findAllById(id);
+            return status(OK).body(new ObjectMapper().writeValueAsString(projeto));
+        } catch (final Exception e) {
+            return status(NOT_FOUND).body("Houve um erro ao recuperar o projeto de ID: "+id);
+        }
+    }
+
+    //TODO Falta testar
+    @PostMapping
+    public ResponseEntity<Object> create(@RequestBody final Projeto projeto) {
+        try {
+            final Projeto projetoSalvo = repositoryProjeto.save(projeto);
+            return status(OK).body(new ObjectMapper().writeValueAsString(projetoSalvo));
+        } catch (final Exception e) {
+            return status(NOT_FOUND).body("Houve um erro ao salvar o projeto...");
+        }
+    }
+
+    //TODO Falta testar
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Object> delete(@PathVariable final Long id) {
+        final Projeto projeto = repositoryProjeto.findAllById(id);
+        if (projeto.possivelExcluir()){
+            repositoryProjeto.deleteById(id);
+            return status(OK).body("Projeto removido com sucesso");
+        } else {
+            return status(HttpStatus.LOCKED).body("Não é possível remover este projeto, seu status não permite!");
+        }
+    }
+
+    //TODO Falta testar
+    //TODO Problema com a serialização
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Object> update(@RequestBody final Projeto projeto, @PathVariable final Long id){
+        try {
+            final Projeto projetoNovo = repositoryProjeto.save(projeto);
+            return status(OK).body(new ObjectMapper().writeValueAsString(projetoNovo));
+        } catch (final Exception e) {
+            return status(NOT_FOUND).body("Houve um erro ao editar o projeto de ID: "+id);
+        }
     }
 
 }
