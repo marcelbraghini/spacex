@@ -1,4 +1,4 @@
-package br.com.marcelbraghini.spacex;
+package br.com.marcelbraghini.springbootpostgres;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class SpacexApplicationTests {
+public class SpringBootPostgresApplicationTests {
 
 	@Test
 	public void contextLoads() {

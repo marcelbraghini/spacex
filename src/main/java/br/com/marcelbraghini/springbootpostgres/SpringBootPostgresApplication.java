@@ -1,4 +1,4 @@
-package br.com.marcelbraghini.spacex;
+package br.com.marcelbraghini.springbootpostgres;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @SpringBootApplication
-public class SpacexApplication {
+public class SpringBootPostgresApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpacexApplication.class, args);
+		SpringApplication.run(SpringBootPostgresApplication.class, args);
 	}
 
 }

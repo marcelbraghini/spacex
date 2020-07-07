@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.com.marcelbraghini</groupId>
-	<artifactId>spacex</artifactId>
+	<artifactId>spring-boot-postgres</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spacex</name>
-	<description>Defafio spring-boot e postgres</description>
+	<name>spring-boot-postgres</name>
+	<description>Teste prático para avaliação profissional</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

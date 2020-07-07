@@ -1,4 +1,4 @@
-package br.com.marcelbraghini.spacex.model;
+package br.com.marcelbraghini.springbootpostgres.model;
 
 public enum Risco {
     BAIXO_RISCO,

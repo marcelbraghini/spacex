@@ -1,7 +1,7 @@
-package br.com.marcelbraghini.spacex.controller;
+package br.com.marcelbraghini.springbootpostgres.controller;
 
-import br.com.marcelbraghini.spacex.model.Pessoa;
-import br.com.marcelbraghini.spacex.repository.RepositoryPessoa;
+import br.com.marcelbraghini.springbootpostgres.model.Pessoa;
+import br.com.marcelbraghini.springbootpostgres.repository.RepositoryPessoa;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

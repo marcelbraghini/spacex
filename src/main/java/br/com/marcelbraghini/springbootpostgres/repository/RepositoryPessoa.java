@@ -1,6 +1,6 @@
-package br.com.marcelbraghini.spacex.repository;
+package br.com.marcelbraghini.springbootpostgres.repository;
 
-import br.com.marcelbraghini.spacex.model.Pessoa;
+import br.com.marcelbraghini.springbootpostgres.model.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RepositoryPessoa extends JpaRepository<Pessoa, Long> {

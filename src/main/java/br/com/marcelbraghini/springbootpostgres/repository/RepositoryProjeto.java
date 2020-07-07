@@ -1,6 +1,6 @@
-package br.com.marcelbraghini.spacex.repository;
+package br.com.marcelbraghini.springbootpostgres.repository;
 
-import br.com.marcelbraghini.spacex.model.Projeto;
+import br.com.marcelbraghini.springbootpostgres.model.Projeto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RepositoryProjeto extends JpaRepository<Projeto, Long> {

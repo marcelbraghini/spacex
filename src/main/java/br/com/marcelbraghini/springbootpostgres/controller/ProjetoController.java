@@ -1,7 +1,7 @@
-package br.com.marcelbraghini.spacex.controller;
+package br.com.marcelbraghini.springbootpostgres.controller;
 
-import br.com.marcelbraghini.spacex.model.Projeto;
-import br.com.marcelbraghini.spacex.repository.RepositoryProjeto;
+import br.com.marcelbraghini.springbootpostgres.model.Projeto;
+import br.com.marcelbraghini.springbootpostgres.repository.RepositoryProjeto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

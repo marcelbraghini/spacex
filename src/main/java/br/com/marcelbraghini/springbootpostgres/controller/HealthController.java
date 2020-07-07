@@ -1,4 +1,4 @@
-package br.com.marcelbraghini.spacex.controller;
+package br.com.marcelbraghini.springbootpostgres.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

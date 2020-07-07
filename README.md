@@ -1,4 +1,4 @@
-# Spacex (exemplo de integração com spring-boot e postgres)
+# spring-boot-postgres demo
 
 ### Iniciando o postgres
 
@@ -9,7 +9,7 @@ docker exec -it postgres bash
 
 ```sql
 -- Inclusão de base
-create database spacex;
+create database theproject;
 
 -- Inclusão de tabelas
 CREATE TABLE pessoa
@@ -19,6 +19,16 @@ datanascimento date,
 cpf character varying(14),
 funcionario boolean,
 CONSTRAINT pk_pessoa PRIMARY KEY (id));
+
+INSERT INTO pessoa
+(nome, datanascimento, cpf, funcionario)
+VALUES('Judith Miranda', '1990-09-28', '111.111.111-11', true);
+INSERT INTO pessoa
+(nome, datanascimento, cpf, funcionario)
+VALUES('João Pedro', '1980-01-15', '222.222.222-22', false);
+INSERT INTO pessoa
+(nome, datanascimento, cpf, funcionario)
+VALUES('Mariaza de Souza', '1992-01-14', '333.333.333-33', true);
 
 CREATE TABLE projeto (
 id bigserial NOT NULL,
@@ -36,10 +46,10 @@ CONSTRAINT fk_gerente FOREIGN KEY (idgerente)
 REFERENCES pessoa (id) MATCH SIMPLE
 ON UPDATE NO ACTION ON DELETE NO ACTION);
 
-INSERT INTO public.projetos
-(nome, data_inicio, data_previsao_fim, data_fim, descricao, status, orcamento, risco)
-VALUES('Projeto X', '2020-06-06', '2021-06-06', null, 
-'Projeto destinado ao entendimento do universo', 'INICIADO', 100000.00, 'ALTO_RISCO');
+INSERT INTO projeto
+(nome, data_inicio, data_previsao_fim, data_fim, descricao, status, orcamento, risco, idgerente)
+VALUES('Projeto X', '2020-06-06', '2021-06-06', null, 'Projeto destinado ao entendimento do universo', 
+'INICIADO', 10000000, 'BAIXO_RISCO', 3);
 
 CREATE TABLE membros
 ( idprojeto bigserial NOT NULL,
@@ -52,29 +62,7 @@ CONSTRAINT fk_pessoa FOREIGN KEY (idpessoa)
 REFERENCES pessoa (id) MATCH SIMPLE
 ON UPDATE NO ACTION ON DELETE NO ACTION);
 
-INSERT INTO public.membros
-(idpessoa, idprojeto )
-VALUES(1,1);
-```
-
-```sql
--- Popular a base
-INSERT INTO public.pessoa
-(nome, datanascimento, cpf, funcionario)
-VALUES('Judith Miranda', '1990-09-28', '111.111.111-11', true);
-INSERT INTO public.pessoa
-(nome, datanascimento, cpf, funcionario)
-VALUES('João Pedro', '1980-01-15', '222.222.222-22', false);
-INSERT INTO public.pessoa
-(nome, datanascimento, cpf, funcionario)
-VALUES('Mariaza de Souza', '1992-01-14', '333.333.333-33', true);
-
-INSERT INTO public.projeto
-(nome, data_inicio, data_previsao_fim, data_fim, descricao, status, orcamento, risco, idgerente)
-VALUES('Projeto X', '2020-06-06', '2021-06-06', null, 'Projeto destinado ao entendimento do universo', 
-'INICIADO', 10000000, 'BAIXO_RISCO', 3);
-
-INSERT INTO public.membros
+INSERT INTO membros
 (idpessoa, idprojeto )
 VALUES(1, 1);
 ```
@@ -82,3 +70,5 @@ VALUES(1, 1);
 ### Iniciando o app
 
 - mvn spring-boot:run
+
+##### Teste prático para avaliação profissional

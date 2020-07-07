@@ -1,6 +1,6 @@
-package br.com.marcelbraghini.spacex.model;
+package br.com.marcelbraghini.springbootpostgres.model;
 
-import br.com.marcelbraghini.spacex.repository.RepositoryProjeto;
+import br.com.marcelbraghini.springbootpostgres.repository.RepositoryProjeto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-import static br.com.marcelbraghini.spacex.model.Risco.BAIXO_RISCO;
-import static br.com.marcelbraghini.spacex.model.Status.INICIADO;
+import static br.com.marcelbraghini.springbootpostgres.model.Risco.BAIXO_RISCO;
+import static br.com.marcelbraghini.springbootpostgres.model.Status.INICIADO;
 import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)

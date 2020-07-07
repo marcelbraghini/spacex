@@ -1,4 +1,4 @@
-package br.com.marcelbraghini.spacex.controller;
+package br.com.marcelbraghini.springbootpostgres.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,20 +12,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PessoaControllerIntegrationtest {
+public class ProjetoControllerIntegrationtest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
-    public void getPessoas() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/pessoas").accept(MediaType.APPLICATION_JSON))
+    public void getProjetos() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/projetos").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void getPessoaId1() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/pessoas/1").accept(MediaType.APPLICATION_JSON))
+    public void getProjetosId1() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/projetos/1").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
